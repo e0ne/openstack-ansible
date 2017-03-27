@@ -52,11 +52,11 @@
 
 # Prepare the swap space loopback disk
 # This is only necessary if there isn't swap already
-- include: prepare_loopback_swap.yml
-  when:
-    - ansible_swaptotal_mb < 1
-  tags:
-    - prepare-loopback-swap
+#- include: prepare_loopback_swap.yml
+#  when:
+#    - ansible_swaptotal_mb < 1
+#  tags:
+#    - prepare-loopback-swap
 
 # Prepare the Cinder LVM VG loopback disk
 # This is only necessary if bootstrap_host_loopback_cinder is set to yes
@@ -67,25 +67,25 @@
     - prepare-loopback-cinder
 
 # Prepare the Nova instance storage loopback disk
-- include: prepare_loopback_nova.yml
-  when:
-    - bootstrap_host_loopback_nova | bool
-  tags:
-    - prepare-loopback-nova
-
+#- include: prepare_loopback_nova.yml
+#  when:
+#    - bootstrap_host_loopback_nova | bool
+#  tags:
+#    - prepare-loopback-nova
+#
 # Prepare the Swift data storage loopback disks
-- include: prepare_loopback_swift.yml
-  when:
-    - bootstrap_host_loopback_swift | bool
-  tags:
-    - prepare-loopback-swift
-
+#- include: prepare_loopback_swift.yml
+#  when:
+#    - bootstrap_host_loopback_swift | bool
+#  tags:
+#    - prepare-loopback-swift
+#
 # Prepare the Ceph cluster UUID and loopback disks
-- include: prepare_ceph.yml
+#- include: prepare_ceph.yml
   when:
-    - bootstrap_host_ceph | bool
-  tags:
-    - prepare-ceph
+#    - bootstrap_host_ceph | bool
+#  tags:
+#    - prepare-ceph
 
 # Prepare the network interfaces
 - include: prepare_networking.yml
